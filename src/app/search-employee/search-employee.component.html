@@ -1,0 +1,72 @@
+<div class="container text-center" style="width: 100%">
+  <h3>Searching Employee Details</h3>
+  <br>
+  <section id="about-us">
+    <div class="container about">
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <form [formGroup]="searchEmpData" (ngSubmit)="searchEmployee(searchEmpData.value.employeeId)">
+              <div class="mb-3" id = "data">
+                  <label class="form-label"> <b>Enter Employee Id</b> </label> <br>
+                  <input type="number" class="form-control" placeholder="Enter Employee Id" formControlName="employeeId" [class.is-invalid]= "searchEmpData.get('employeeId').touched &&
+                  searchEmpData.get('employeeId').invalid">
+                  <div *ngIf="searchEmpData.get('employeeId').touched && searchEmpData.get('employeeId').invalid" >
+                    <small class="text-danger" *ngIf="searchEmpData.get('employeeId').errors?.['required']">Employee Id is requried</small>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+              </form>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" *ngIf="employeeData;else notFound">
+                      
+    <table class="table">
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td>{{employeeData.firstName | uppercase}}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>{{employeeData.lastName | uppercase}}</td>
+          </tr>
+          <tr>
+            <td>Contact Number</td>
+            <td>{{employeeData.contactNo}}</td>
+          </tr>
+          <tr>
+            <td>Date Of Birth</td>
+            <td>{{employeeData.dateOfBirth | date}}</td>
+          </tr>
+          <tr>
+            <td>Department</td>
+            <td>{{employeeData.department.deprtmentName}}</td>
+          </tr>
+        </tbody>
+      </table>
+                    </div>
+                    <ng-template #notFound>
+                      <div class="container">
+                          <p> No Records Found</p>
+                      </div>
+                  </ng-template>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+  </section>
+
+</div>
+
+

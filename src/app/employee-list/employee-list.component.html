@@ -1,0 +1,41 @@
+
+<div class="container" *ngIf="employeesList;else notFound">
+    <h2>Employees List</h2> <br>
+    <button><a class="nav-link" style="color: teal;" routerLink="/add-employee">Add Employee</a></button>
+      <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Employee Id</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Date Of Birth</th>
+              <th scope="col">Contact No</th>
+              <th scope="col">Department</th>
+              <th scope="col">action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let employee of employeesList'>
+              
+              <th scope="row">{{employee.employeeId}}</th>
+              <td>{{employee.firstName | uppercase}}</td>
+              <td>{{employee.lastName | uppercase}}</td>
+              <td>{{employee.dateOfBirth | date }}</td>
+              <td>{{employee.contactNo}}</td>
+              <td>{{employee.department.deprtmentName}}</td>
+              <td><input type="checkbox" name="" #checked (change) = "selectCheck(employee.employeeId)" [checked] = "selAll"></td>
+            </tr>
+          </tbody>
+        </table>
+
+     <div><button [disabled] = "inp" (click) = "deleteEmp()">DELETE</button> &nbsp;&nbsp;
+      <button (click) = "selectAll()">{{btnName}}</button>
+    </div> 
+  </div>
+  <ng-template #notFound>
+    <div class="container">
+    <p> No Employee Records Found</p>
+  </div>
+  </ng-template>
+  

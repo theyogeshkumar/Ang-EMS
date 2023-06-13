@@ -1,0 +1,85 @@
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+  <h2 class="text-white">EMPLOYEE MANAGEMENT PORTAL</h2>
+  <span class="text-muted">One Step Solution to deal with employee Data</span>
+  </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  
+  <a class="navbar-brand"
+  routerLink = "/"
+  style="color: #ff4c68; font-weight: bold; font-size: 30px; width: 650px; float: left;">EMS</a>
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-light " style="width: 40%;">
+  
+  
+  
+  <div class="collapse navbar-collapse" id="navbarNav" style="color: white; font-size: large; float: left; padding-left: 70px;">
+  <i> EMPLOYEE MANAGEMENT SYSTEM</i>
+  </div>
+  </nav>
+  
+  </nav>
+  </div>
+
+
+  
+<div class="container-fluid">
+  <div class="row content">
+  <div class="col-sm-3 sidenav " style="float: left; color: red;">
+  
+  <!-- <h4>YOU ARE WELCOME
+     ${aadm_uname}
+    </h4> -->
+  <a  class="adm-link" role="button" (click) = "openChild1()">DEPARTMENT SECTION &nbsp;  &nbsp; 
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </a>
+  <a routerLink="/department-list" role="button" *ngIf="childCond">
+    <span class="badge badge-dark badge-pill">1</span>
+    &nbsp; DEPARTMENT LIST</a>
+  <a routerLink="/add-department" class="" role="button"  *ngIf="childCond">
+    <span class="badge badge-dark badge-pill">2</span>
+    &nbsp; DEPARTMENT ADD</a>
+  <a  class="adm-link" role="button" (click) = "openChild2()">EMPLOYEE SECTION
+    &nbsp;  &nbsp; &nbsp;  &nbsp; 
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </a>
+  <a routerLink="/add-employee" role="button" *ngIf="childCond1">
+    <span class="badge badge-dark badge-pill">1</span>
+    &nbsp; EMPLOYEE ADD</a>
+  <a routerLink="/edit-employee" class="" role="button"  *ngIf="childCond1">
+    <span class="badge badge-dark badge-pill">2</span>
+    &nbsp; EMPLOYEE UPDATE</a>
+    <a routerLink="/search-employee" role="button" *ngIf="childCond1">
+      <span class="badge badge-dark badge-pill">3</span>
+      &nbsp; EMPLOYEE SEARCH</a>
+    <a routerLink="/delete-employee" class="" role="button"  *ngIf="childCond1">
+      <span class="badge badge-dark badge-pill">4</span>
+      &nbsp; EMPLOYEE DELETE</a>
+      <a routerLink="/employee-list" role="button" *ngIf="childCond1">
+        <span class="badge badge-dark badge-pill">5</span>
+        &nbsp; EMPLOYEE VIEW</a>
+    
+  </div>
+  <div class="col-sm-9 sidenav " style="float: right;">
+    <router-outlet></router-outlet>
+    <br><br>
+  </div>
+  
+  </div>
+ 
+  </div>
+  
+  <footer class="container-fluid">
+  <p>EMS @2022</p>
+  </footer>

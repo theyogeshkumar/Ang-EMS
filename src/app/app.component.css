@@ -1,0 +1,68 @@
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 15px !important;
+    background-color: #f1f1f1;
+    padding : 0;
+    display: flex;
+    flex-direction:column;
+    }
+    
+    .sidenav h4 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    }
+    
+    .sidenav h4::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: #bbb;
+    bottom: 0;
+    left: 15px;
+    }
+    
+    .sidenav > * {
+    padding-left: 15px;
+    }
+    
+    .sidenav > a {
+    width: 100%;
+    color : #000;
+    padding: 10px 0 10px 15px;
+    border: 1px solid #aaa;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    transition: 0.3s;
+    }
+    
+    .sidenav > a:last-child {
+    border: none;
+    }
+    
+    .sidenav > a:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #068488;
+    font-weight: bold;
+    }
+    
+    
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+    .sidenav {
+    height: auto;
+    }
+    .row.content {height: auto;}
+    }
+    
+    footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    }
+    

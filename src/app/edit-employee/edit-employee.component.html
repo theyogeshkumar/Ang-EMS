@@ -1,0 +1,118 @@
+<div class="container text-center" style="width: 100%">
+    <h3>Updating Employee Details</h3>
+    <br>
+    <section id="about-us">
+      <div class="container about">
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <form [formGroup]="searchEmpData" (ngSubmit)="searchEmployee(searchEmpData.value.employeeId)">
+                <div class="mb-3" id = "data">
+                  <label class="form-label"><b>Enter Employee Id</b> </label> <br>
+                  <input type="number" class="form-control" placeholder="Enter Employee Id" formControlName="employeeId" [class.is-invalid]= "searchEmpData.get('employeeId').touched &&
+                  searchEmpData.get('employeeId').invalid">
+                  <div *ngIf="searchEmpData.get('employeeId').touched && searchEmpData.get('employeeId').invalid" >
+                    <small class="text-danger" *ngIf="searchEmpData.get('employeeId').errors?.['required']">Employee Id is requried</small>
+                  </div>
+                </div>
+                <button type="submit"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+                </form>
+  
+  
+                  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Employee Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+       
+  <div class="container" *ngIf="employeeData;else notFound">
+  
+  <form [formGroup]="updateEmpData" (ngSubmit)="updateEmployee(searchEmpData.value.employeeId, updateEmpData.value)">
+    <div class="mb-3">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" id = "data" placeholder="Enter First Name" formControlName="firstName" [class.is-invalid]= "updateEmpData.get('firstName').touched &&
+      updateEmpData.get('firstName').invalid">
+      <div *ngIf="updateEmpData.get('firstName').touched && updateEmpData.get('firstName').invalid" >
+        <small class="text-danger" *ngIf="updateEmpData.get('firstName').errors?.['required']">FirstName is requried</small>
+        <small class="text-danger" *ngIf="updateEmpData.get('firstName').errors?.['maxlength']">Firstname Should not be grater then 20 Chararacters</small> 
+        <small class="text-danger" *ngIf="updateEmpData.get('firstName').errors?.['pattern']">Firstname Should Contain only Character</small> 
+
+    </div>
+  </div>
+  <div class="mb-3">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-control" id = "data" placeholder="Enter Last Name" formControlName="lastName" [class.is-invalid]= "updateEmpData.get('lastName').touched &&
+      updateEmpData.get('lastName').invalid">
+      <div *ngIf="updateEmpData.get('lastName').touched && updateEmpData.get('lastName').invalid" >
+        <small class="text-danger" *ngIf="updateEmpData.get('lastName').errors?.['required']">LastName is requried</small>
+        <small class="text-danger" *ngIf="updateEmpData.get('lastName').errors?.['maxlength']">LastName Should not be grater then 20 Characters</small> 
+        <small class="text-danger" *ngIf="updateEmpData.get('lastName').errors?.['pattern']">LastName Should Contain only Character</small> 
+
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="form-label">Date Of Birth</label>
+  <input formControlName="dateOfBirth"  type="date" class="form-control" id = "data" placeholder="Enter dateOfBirth" [class.is-invalid]= "updateEmpData.get('dateOfBirth').touched &&
+  updateEmpData.get('dateOfBirth').invalid">
+                <div *ngIf="updateEmpData.get('dateOfBirth').touched && updateEmpData.get('dateOfBirth').invalid" >
+                <small class="text-danger" *ngIf="updateEmpData.get('dateOfBirth').errors?.['required']">Date of Birth is Mandatory</small>
+                </div>
+  </div>
+  <div class="form-group">
+  <label class="form-label">Contact Number</label>
+  <input formControlName="contactNo"  type="text" id = "data" class="form-control" placeholder="Enter contact Number" [class.is-invalid]= "updateEmpData.get('contactNo').touched &&
+  updateEmpData.get('contactNo').invalid">
+                <div *ngIf="updateEmpData.get('contactNo').touched && updateEmpData.get('contactNo').invalid" >
+          
+                  <small class="text-danger" *ngIf="updateEmpData.get('contactNo').errors?.['required']">Contact Number is requried</small>
+                  <small class="text-danger" *ngIf="updateEmpData.get('contactNo').errors?.['pattern']">Contact Number Should Contain only Numbers</small>
+                </div>
+  </div><br>
+  <div class="form-group">
+  <label class="form-label">Department</label>&nbsp;&nbsp;&nbsp;
+  <select formControlName="department"[class.is-invalid]= "updateEmpData.get('department').touched &&
+  updateEmpData.get('department').invalid">
+                  <option value="">Select Department </option>
+                  <option *ngFor="let department of departments" [ngValue]="department">{{ department.deprtmentName }}</option>
+                </select>
+              
+                <div *ngIf="updateEmpData.get('department').touched && updateEmpData.get('department').invalid" >
+                <small class="text-danger" *ngIf="updateEmpData.get('department').errors?.['required']">Department is Mandatory</small>
+                </div>
+  </div>
+    <br><br>
+      <button type="submit" class="btn btn-primary" [disabled]="updateEmpData.invalid">Update</button>&nbsp;&nbsp;&nbsp;
+      <button type="reset" class="btn btn-primary">Reset</button>
+    </form>
+  </div>
+  <ng-template #notFound>
+    <div class="container">
+    <p> No Records Found</p>
+  </div>
+  </ng-template>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+                
+            </div>
+          </div>
+        </div>
+        </div>
+    </section>
+  
+  </div>
+  
+  
+  
+  
+  
+    
+    

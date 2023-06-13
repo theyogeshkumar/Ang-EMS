@@ -1,0 +1,31 @@
+<div class="container text-center" style="width: 100%">
+    <h3>Enter Department Details</h3>
+    <br>
+    <section id="about-us">
+      <div class="container about">
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <form [formGroup]="addDepartment" (ngSubmit)="insertDepartment(addDepartment.value)">
+                <div >
+                  <br>
+                  <b><label class="form-label">Department Name</label></b>
+                    <br>
+                    <input type="text" class="form-control" id = "data" placeholder="Enter Department Name" formControlName="deprtmentName" [class.is-invalid]= "addDepartment.get('deprtmentName').touched &&
+                    addDepartment.get('deprtmentName').invalid">
+                    <div *ngIf="addDepartment.get('deprtmentName').touched && addDepartment.get('deprtmentName').invalid" >
+                      <small class="text-danger" *ngIf="addDepartment.get('deprtmentName').errors?.['required']">Department Name is requried</small>
+                    </div>
+                </div>
+                <br><br><br>
+              <button type="submit" class="btn btn-secondary" [disabled]="addDepartment.invalid">Add</button>&nbsp;&nbsp;&nbsp;
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        </div>
+    </section>
+  
+  </div>
+  
